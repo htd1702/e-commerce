@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: navbar"></head>
+
+<body>	
+	<nav th:replace = "layouts :: foo"></nav>
+		
+	<div class="container">
+		<form action="/products/save" th:object="${product}" method="POST">
+		
+		name : <input type="text" placeholder="Product Name" th:field="${product.name}">
+		</br>
+		price : <input type="text" placeholder="Product Price" th:field="${product.price}">
+		</br>
+		color : <input type="text" placeholder="Product Color" th:field="${product.color}">
+		</br>
+		size : <select th:field="${product.size}">
+			<option th:value="SMALL"> Small</option>
+			<option th:value="NORMAL"> Normal</option>
+			<option th:value="LARGE"> Large</option>
+		</select>
+		</br>
+		description:
+		</br>
+		<textarea type="text" placeholder="Enter Product Description" th:field="${product.des}" ></textarea>
+		</br>
+		image 1 : <input type="text" placeholder="Image 1" th:field="${product.image1}">
+		</br>
+		image 2: <input type="text" placeholder="Image 2" th:field="${product.image2}">
+		</br>
+		image 3: <input type="text" placeholder="Image 3" th:field="${product.image3}">
+		</br>
+		<button type="submit">Create Product</button>
+		
+		</form>
+	</div>
+	
+</body>
+
+</html>

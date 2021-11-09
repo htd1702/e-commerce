@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<nav th:replace="layouts :: navbar"></nav>
+
+<body>
+	<nav th:replace="layouts :: foo"></nav>
+	<div class="container">
+		<hr>
+		<h4>Products directory</h4>
+		<a th:href="@{/users/new}" class="btn btn-primary btn-sm mb-3">Add
+			User</a> <br></br>
+
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>Address</th>
+					<th>Email</th>
+					<th>Date Of Birth</th>
+					<th>Gender</th>
+					<th>Phone Number</th>
+					<th>Password</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aUser : ${usersList}">
+					<td th:text="${aUser.firstName}" />
+					<td th:text="${aUser.lastName}" />
+					<td th:text="${aUser.address}" />
+					<td th:text="${aUser.email}" />
+					<td th:text="${aUser.dateOfBirth}" />
+					<td th:text="${aUser.gender}" />
+					<td th:text="${aUser.phoneNumber}" />
+					<td th:text="${aUser.pass}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-md-4">
+		<canvas id="myPieChart" height="50" width="50"></canvas>
+		<script type="text/javascript">
+					var chartData="[[${projectStatusCnt}]]"
+				</script>
+	</div>
+
+</body>
+</html>

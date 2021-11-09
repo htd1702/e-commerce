@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<nav th:replace="layouts :: navbar"></nav>
+
+<body>
+	<nav th:replace="layouts :: foo"></nav>
+	<div class="container">
+		<hr>
+		<h4>Current products</h4>
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Color</th>
+							<th>Size</th>
+							<th>Description</th>
+							<th>Image First</th>
+							<th>Image Second</th>
+							<th>Image Third</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="aProduct : ${productsList}">
+							<td th:text="${aProduct.name}" />
+							<td th:text="${aProduct.price}" />
+							<td th:text="${aProduct.color}" />
+							<td th:text="${aProduct.size}" />
+							<td th:text="${aProduct.des}" />
+							<td th:text="${aProduct.image1}" />
+							<td th:text="${aProduct.image2}" />
+							<td th:text="${aProduct.image3}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-md-4">
+				<canvas id="myPieChart" height="50" width="50"></canvas>
+				<script type="text/javascript">
+					var chartData = "[[${projectStatusCnt}]]"
+				</script>
+			</div>
+
+		</div>
+	</div>
+	<div>
+		<h4>Current User</h4>
+
+		<table>
+			<thead>
+				<tr>
+					<th>FirstNAme</th>
+					<th>LastName</th>
+					<th>Address</th>
+					<th>Email</th>
+					<th>Date Of Birth</th>
+					<th>Gender</th>
+					<th>Phone Number</th>
+					<th>Password</th>
+
+				</tr>
+			<tbody>
+				<tr th:each="aUser : ${usersList}">
+					<td th:text="${aUser.firstName}" />
+					<td th:text="${aUser.lastName}" />
+					<td th:text="${aUser.address}" />
+					<td th:text="${aUser.email}" />
+					<td th:text="${aUser.dateOfBirth}" />
+					<td th:text="${aUser.gender}" />
+					<td th:text="${aUser.phoneNumber}" />
+					<td th:text="${aUser.pass}" />
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</body>
+
+
+
+
+</html>

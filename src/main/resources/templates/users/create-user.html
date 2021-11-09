@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: navbar"></head>
+
+<body>	
+	<nav th:replace = "layouts :: foo"></nav>
+		
+	<div class="container">
+		<form action="/users/save" th:object="${user}" method="POST">
+		
+			First name : <input type="text" placeholder="First Name" th:field="${user.firstName}">
+			</br>
+			Last name : <input type="text" placeholder="Last Name" th:field="${user.lastName}">
+			</br>
+			Address : <input type="text" placeholder="Address" th:field="${user.address}">
+			</br>
+			Date of Birth : <input type="text" placeholder="Date Of Birth" th:field="${user.dateOfBirth}">
+			</br>
+			Email : <input type="text" placeholder="Email" th:field="${user.email}">
+			</br>
+			Gender : 
+			<select th:field="${user.gender}">
+				<option th:value="MALE"> Male</option>
+				<option th:value="FEMALE"> Female</option>
+				<option th:value="NOTSPECIFIED"> Not Specified</option>
+			</select>
+			</br>
+			Phone Number : <input type="text" placeholder="Phone Number" th:field="${user.phoneNumber}">
+			</br>
+			Password : <input type="text" placeholder="Password" th:field="${user.pass}">
+			</br>
+			<button type="submit">Create User</button>
+		
+		</form>
+	</div>
+	
+</body>
+
+</html>
